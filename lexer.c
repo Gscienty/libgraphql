@@ -197,7 +197,7 @@ static int graphql_make_token_number(graphql_token_t *tok, graphql_lexer_ctx_t *
         pos = dpos;
     }
 
-    GRAPHQL_MAKE_TOKEN(tok, is_float ? FLOAT : INT, start, pos, ctx->src + start);
+    GRAPHQL_MAKE_TOKEN(tok, is_float ? GQL_FLOAT : GQL_INT, start, pos, ctx->src + start);
 
     return 0;
 }
@@ -231,7 +231,7 @@ static int graphql_make_token_name(graphql_token_t *tok, graphql_lexer_ctx_t *ct
                 || ('a' <= code && code <= 'z')
                 || ('A' <= code && code <= 'Z')));
 
-    GRAPHQL_MAKE_TOKEN(tok, NAME, spos, epos, ctx->src + spos);
+    GRAPHQL_MAKE_TOKEN(tok, GQL_NAME, spos, epos, ctx->src + spos);
     return 0;
 }
 
